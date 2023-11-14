@@ -9,17 +9,17 @@ int _printf(const char *format, ...)
 	int count = 0, count_func = 0;
 	va_list my_args;
 
+	va_start(my_args, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	va_start(my_args, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			if (!format || (*format == ' ' && *(format + 1) == '\0'))
+			if (!format || (*format == ' ' && !(*(format + 1))))
 			{
 				count = -1;
 				break;
