@@ -18,16 +18,15 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			format++;
-			if (!format || (*format == ' ' && !(*(format + 1))))
+			if (!(format + 1) || (*(format + 1) == ' ' && !(*(format + 2))))
 			{
 				count = -1;
 				break;
 			}
-			count_func += get_func(*format, my_args);
-			if (count == 0)
-				count += _putchar(*format);
-			if (count == -1)
+			count_func += get_func(*(format + 1), my_args);
+			if (count_func == 0)
+				count += _putchar(*(format + 1));
+			if (count_func == -1)
 				count = -1;
 		}
 		else
