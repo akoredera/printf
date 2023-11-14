@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, count_func = 0, a = 0;
+	int /*count = 0,*/ count_func = 0, a = 0;
 	va_list my_args;
 
 	va_start(my_args, format);
@@ -18,29 +18,31 @@ int _printf(const char *format, ...)
 	{
 		if (format[a] == '%')
 		{
-			if (!format[a + 1] || (format[a + 1] == ' ' && !format[a + 2]))
-			{
-				count = -1;
+			format++;
+			if (format[a] == '\0')
 				break;
+			switch(format[a])
+			{
+				case 'c':
+					count_func += print_char(my_args);
+					break;
+				case 's':
+					count_func += print_str(my_args);
+					break;
+				case '%':
+					count_func += print_perc(my_args);
+					break;
+				default:
+					count_func += _putchar(format[a + 1]);
+					break;
 			}
-			count_func += get_func(format[a + 1], my_args);
-			if (count_func == 0)
-				count += _putchar(format[a + 1]);
-			if (count_func == -1)
-				count = -1;
-			a++;
 		}
-		else
+		else 
 		{
-			if (count == -1)
-				_putchar(format[a]);
-			else
-				count += _putchar(format[a]);
+			count_func += _putchar(format[a]);
 		}
 		a++;
-		if (count != -1)
-			count += count_func;
 	}
 	va_end(my_args);
-	return (count);
+	return (count_func);
 }
