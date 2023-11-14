@@ -15,7 +15,6 @@ int get_func(char format, va_list my_args)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_perc},
-		{0, NULL}
 	};
 
 	while (for_str[i].format_specifiers)
