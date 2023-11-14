@@ -1,5 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include "main.h"
 
 /**
  * print_int - converts integer to string
@@ -9,7 +11,7 @@
 
 int print_int(int value)
 {
-	int printed;
+	int i, printed;
 	int buffer_size = snprintf(NULL, 0, "%d", value);
 	char *buffer = (char *)malloc(buffer_size + 1);
 
@@ -19,9 +21,9 @@ int print_int(int value)
 	}
 
 	printed = snprintf(buffer, buffer_size + 1, "%d", value);
-	for (int i = 0; i < printed; i++)
+	for (i = 0; i < printed; i++)
 	{
-		putchar(buffer[i]);
+		_putchar(buffer[i]);
 	}
 
 	free(buffer);
