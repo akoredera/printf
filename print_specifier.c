@@ -12,7 +12,7 @@ int print_perc(va_list my_args)
 	return (1);
 }
 /**
- * print_perc - print char
+ * print_char - print char
  * @my_args: argument.
  * Return: count of chars.
  */
