@@ -36,11 +36,10 @@ int print_str(va_list my_args)
 	if (!str)
 	{
 		str = "(null)";
-		return (-1);
 	}
 	if (str[0] == '\0')
 		return (-1);
 	for (i = 0; str[i] != '\0'; i++)
-		count = _putchar(str[i]);
+		count += _putchar(str[i]);
 	return (count);
 }
