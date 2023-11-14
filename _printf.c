@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (format[a] == '\0')
 				break;
-			switch(format[a])
+			switch (format[a])
 			{
 				case 'c':
 					count_func += print_char(my_args);
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 					break;
 			}
 		}
-		else 
+		else
 		{
 			count_func += _putchar(format[a]);
 		}
