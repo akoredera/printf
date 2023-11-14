@@ -23,11 +23,11 @@ int get_func(char format, va_list my_args)
 			count_f += for_str[i].a(my_args);
 		i++;
 	}
-	if (count_f == 0)
+/*	if (count_f == 0)
 	{
 		count_f += _putchar('%');
 		count_f += _putchar(format);
-	}
+	} */
 	return (count_f);
 }
 
