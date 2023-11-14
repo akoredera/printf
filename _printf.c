@@ -1,59 +1,46 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stddef.h>
-#include <unistd.h>
-
 /**
+ * _printf - Emulate the original.
+ * * @format: Format by specifier.
+ * * Return: count of chars.
  */
 int _printf(const char *format, ...)
 {
+	int count = 0, count_func = 0;
 	va_list my_args;
 
-	int count = 0;
-	char c;
-	char *str;
-	int str_len;
-
-	if (format == NULL)
-	{
-		return(-1);
-	}
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
 	va_start(my_args, format);
-
 	while (*format)
 	{
-		if (*format != '%')
+		if (*format == '%')
 		{
-			write(1, format, 1);
-			count++;
+			format++;
+			if (!format || (*format == ' ' && *(format + 1) == '\0'))
+			{
+				count = -1;
+				break;
+			}
+			count_func += get_func(*format, my_args);
+			if (count == 0)
+				count += _putchar(*format);
+			if (count == -1)
+				count = -1;
 		}
 		else
 		{
-			format++;
-			if (*format == '\0')
-			{
-				break;
-			}
-			else if (*format == 'c')
-			{
-				c = va_arg(my_args, int);
-				write(1, &c, 1);
-				count++;
-			}
-			else if (*format == 's')
-			{
-				str = va_arg(my_args, char *);
-				str_len = 0;
-				while (str[str_len] != '\0')
-				{
-					str_len++;
-				}
-				write(1, str, str_len);
-				count += str_len;
-			}
+			if (count == -1)
+				_putchar(*format);
+			else
+				count += _putchar(*format);
 		}
+		if (count != -1)
+			count += count_func;
 		format++;
 	}
 	va_end(my_args);
-	return(count);
+	return (count);
 }
