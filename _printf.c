@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 					count_func += print_perc(my_args);
 					break;
 				default:
-					count_func += _putchar(format[a + 1]);
+					count_func += _putchar(format[a]);
 					break;
 			}
 		}
