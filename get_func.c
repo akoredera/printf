@@ -26,7 +26,7 @@ int get_func(char format, va_list my_args)
 	}
 	if (count_f == 0)
 	{
-		count_f += _putchar('&');
+		count_f += _putchar('%');
 		count_f += _putchar(format);
 	}
 	return (count_f);
