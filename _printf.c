@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, count_func = 0;
+	int count = 0, count_func = 0, a = 0;
 	va_list my_args;
 
 	va_start(my_args, format);
@@ -14,31 +14,32 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	while (*format)
+	while (format[a])
 	{
-		if (*format == '%')
+		if (format[a] == '%')
 		{
-			if (!(format + 1) || (*(format + 1) == ' ' && !(*(format + 2))))
+			if (!format[a + 1] || (format[a + 1] == ' ' && !format[a + 2]))
 			{
 				count = -1;
 				break;
 			}
-			count_func += get_func(*(format + 1), my_args);
+			count_func += get_func(format[a + 1], my_args);
 			if (count_func == 0)
-				count += _putchar(*(format + 1));
+				count += _putchar(format[a + 1]);
 			if (count_func == -1)
 				count = -1;
+			a++;
 		}
 		else
 		{
 			if (count == -1)
-				_putchar(*format);
+				_putchar(format[a]);
 			else
-				count += _putchar(*format);
+				count += _putchar(format[a]);
 		}
+		a++;
 		if (count != -1)
 			count += count_func;
-		format++;
 	}
 	va_end(my_args);
 	return (count);
