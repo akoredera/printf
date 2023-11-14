@@ -36,6 +36,7 @@ int print_str(va_list my_args)
 	if (!str)
 	{
 		str = "(null)";
+		return (-1);
 	}
 	if (str[0] == '\0')
 		return (-1);
