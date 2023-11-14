@@ -43,3 +43,16 @@ int print_str(va_list my_args)
 		count += _putchar(str[i]);
 	return (count);
 }
+/**
+ * print_num - prints a num converted to string
+ * Return: no characters printed by print_int
+ * @my_args: argument
+ */
+int print_num(va_list my_args)
+{
+	int result;
+	int value = va_arg(my_args, int);
+
+	result = print_int(value);
+	return (result);
+}

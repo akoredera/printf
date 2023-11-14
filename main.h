@@ -11,10 +11,17 @@
  * @f: The function associated
  */
 
+struct spec
+{
+	char *format_specifiers;
+	int (*f)(va_list);
+};
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int print_int(int value);
 int print_str(va_list my_args);
 int print_char(va_list my_args);
 int print_perc(va_list my_args);
+int print_num(va_list my_args);
 #endif

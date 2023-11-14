@@ -32,6 +32,12 @@ int _printf(const char *format, ...)
 				case '%':
 					count_func += print_perc(my_args);
 					break;
+				case 'd':
+					count_func += print_num(my_args);
+					break;
+				case 'i':
+					count_func += print_num(my_args);
+					break;
 				default:
 					count_func += _putchar(format[a]);
 					break;
