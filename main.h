@@ -11,14 +11,8 @@
  * @f: The function associated
  */
 
-typedef struct format_specifiers
-{
-	char format_specifiers;
-	int (*a)(va_list);
-} specifiers;
 
 int _printf(const char *format, ...);
-int get_func(char format, va_list my_args);
 int _putchar(char c);
 int print_str(va_list my_args);
 int print_char(va_list my_args);
