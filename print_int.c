@@ -11,7 +11,9 @@
 
 int print_int(int value)
 {
-	int i, printed;
+	int i;
+	
+	int printed;
 	int buffer_size = snprintf(NULL, 0, "%d", value);
 	char *buffer = (char *)malloc(buffer_size + 1);
 
@@ -21,9 +23,19 @@ int print_int(int value)
 	}
 
 	printed = snprintf(buffer, buffer_size + 1, "%d", value);
-	for (i = 0; i < printed; i++)
+	if (value < 0)
 	{
-		_putchar(buffer[i]);
+		for (i = 1; i < printed; i++)
+		{
+			_putchar(buffer[i]);
+		}
+	}
+	else
+	{
+		for (i = 0; i < printed; i++)
+		{
+			_putchar(buffer[i]);
+		}
 	}
 
 	free(buffer);

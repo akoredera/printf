@@ -21,7 +21,31 @@ int _printf(const char *format, ...)
 			format++;
 			if (format[a] == '\0')
 				break;
+<<<<<<< HEAD
 			count_func += get_func(format[a], my_args);
+=======
+			switch (format[a])
+			{
+				case 'c':
+					count_func += print_char(my_args);
+					break;
+				case 's':
+					count_func += print_str(my_args);
+					break;
+				case '%':
+					count_func += print_perc(my_args);
+					break;
+				case 'd':
+					count_func += print_num(my_args);
+					break;
+				case 'i':
+					count_func += print_num(my_args);
+					break;
+				default:
+					count_func += _putchar(format[a - 1]);
+					break;
+			}
+>>>>>>> 464cd44 (modifying the files)
 		}
 		else
 		{
