@@ -29,17 +29,3 @@ int print_int(int value)
 	free(buffer);
 	return (printed);
 }
-
-/**
- * print_num - print a nume converted to string
- * @my_args: list of arguement
- * Return: no of characters printed by print_int
- */
-int print_num(va_list my_args)
-{
-	int result;
-	int value = va_arg(my_args, int);
-
-	result = print_int(value);
-	return (result);
-}
