@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (format[a] == '\0')
 				break;
-			count_func = get_func(format[a], my_args);
+			count_func += get_func(format[a], my_args);
 		}
 		else
 		{
