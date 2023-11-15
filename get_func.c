@@ -27,7 +27,7 @@ int get_func(char format, va_list my_args)
 			count_func += print_num(my_args);
 			break;
 		default:
-			count_func += _putchar(format);
+/*			count_func += _putchar(format); */
 			break;
 	}
 	return (count_func);
