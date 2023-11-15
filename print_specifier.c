@@ -44,8 +44,6 @@ int print_str(va_list my_args)
 	return (count);
 }
 
-#include <unistd.h>
-
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
