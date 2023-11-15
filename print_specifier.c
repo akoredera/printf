@@ -44,19 +44,6 @@ int print_str(va_list my_args)
 	return (count);
 }
 /**
- * print_num - print a nume converted to string
- * @my_args: list of arguement
- * Return: no of characters printed by print_int
- */
-int print_num(va_list my_args)
-{
-	int result;
-	int value = va_arg(my_args, int);
-
-	result = print_int(value);
-	return (result);
-}
-/**
  * _putchar - writes the character c to stdout
  * @c: The character to print
  *
