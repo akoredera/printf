@@ -37,9 +37,9 @@ int print_int(int value)
  */
 int print_num(va_list my_args)
 {
-        int result;
-        int value = va_arg(my_args, int);
+	int result;
+	int value = va_arg(my_args, int);
 
-        result = print_int(value);
-        return (result);
+	result = print_int(value);
+	return (result);
 }
