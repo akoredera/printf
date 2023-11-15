@@ -18,6 +18,8 @@ int print_perc(va_list my_args)
  */
 int print_char(va_list my_args)
 {
+	if (typeof(va_arg(my_args, int)) != char)
+		return (-1);
 	char c = va_arg(my_args, int);
 
 	_putchar(c);
@@ -31,6 +33,9 @@ int print_char(va_list my_args)
 int print_str(va_list my_args)
 {
 	int i, count = 0;
+
+	if (typeof(va_arg(my_args, char *)) != char *)
+		return (-1);
 	char *str = va_arg(my_args, char *);
 
 	if (!str)
