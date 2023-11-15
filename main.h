@@ -16,7 +16,7 @@ struct spec
 	char *format_specifiers;
 	int (*f)(va_list);
 };
-
+int get_func(char format, va_list my_args);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_int(int value);
