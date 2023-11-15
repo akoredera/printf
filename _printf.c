@@ -25,6 +25,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			if (format[a] == '\0')
+				break;
 			count_func += _putchar(format[a]);
 		}
 		a++;
