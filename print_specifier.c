@@ -43,14 +43,3 @@ int print_str(va_list my_args)
 		count += _putchar(str[i]);
 	return (count);
 }
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
